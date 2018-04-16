@@ -1,0 +1,29 @@
+body {
+    /* 不加这个默认的body有个margin，获取到的clientX和clientY是相对于根元素的，把这个值用在相对于canvas上会有偏移 */
+    margin: 0;
+    padding: 0;
+}
+
+#canvas {
+    background: pink;
+    display: block;
+    /*   不加会有缝隙 */
+}
+
+#eraser {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: #777;
+    cursor: pointer;
+    outline: none;
+    color: white;
+    border: none;
+    font-family: "方正舒体"
+}
+
+#eraser:hover {
+    background: #444;
+}
