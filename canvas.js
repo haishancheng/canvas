@@ -1,8 +1,12 @@
 var canvas = {
     init: function() {
-        this.eraser = document.getElementById('eraser')
         this.canvas = document.getElementById('canvas')
         this.context = this.canvas.getContext('2d')
+        this.pen = document.getElementById('pen')
+        this.eraser = document.getElementById('eraser')
+        this.red = document.getElementById('red')
+        this.yellow = document.getElementById('yellow')
+        this.blue = document.getElementById('blue')
         this.paintOrEraser = false
         this.eraserEnable = false
         this.lastPoint = { x: undefined, y: undefined }
@@ -22,7 +26,7 @@ var canvas = {
                     _this.context.clearRect(x - 5, y - 5, 10, 10)
                 } else {
                     _this.lastPoint = { x: x, y: y }
-                    _this.drawCircle(x, y, 2)
+                        // _this.drawCircle(x, y, 2)
                 }
             }
             this.canvas.ontouchmove = function(e) {
@@ -33,7 +37,7 @@ var canvas = {
                     if (_this.eraserEnable) {
                         _this.context.clearRect(x - 5, y - 5, 10, 10)
                     } else {
-                        _this.drawCircle(x, y, 2)
+                        // _this.drawCircle(x, y, 2)
                         _this.drawLine(_this.lastPoint.x, _this.lastPoint.y, newPoint.x, newPoint.y)
                         _this.lastPoint = newPoint
                     }
@@ -52,7 +56,7 @@ var canvas = {
                     _this.context.clearRect(x - 5, y - 5, 10, 10)
                 } else {
                     _this.lastPoint = { x: x, y: y }
-                    _this.drawCircle(x, y, 2)
+                        // _this.drawCircle(x, y, 2)
                 }
             }
             this.canvas.onmousemove = function(e) {
@@ -63,7 +67,7 @@ var canvas = {
                     if (_this.eraserEnable) {
                         _this.context.clearRect(x - 5, y - 5, 10, 10)
                     } else {
-                        _this.drawCircle(x, y, 2)
+                        // _this.drawCircle(x, y, 2)
                         _this.drawLine(_this.lastPoint.x, _this.lastPoint.y, newPoint.x, newPoint.y)
                         _this.lastPoint = newPoint
                     }
@@ -79,10 +83,36 @@ var canvas = {
                 _this.setCanvasSize()
             }
         }
+        this.pen.onclick = function() {
+            _this.eraserEnable = false
+            _this.pen.classList.add('active')
+            _this.eraser.classList.remove('active')
+        }
         this.eraser.onclick = function() {
-            _this.eraserEnable = !_this.eraserEnable
+            _this.eraserEnable = true
+            _this.eraser.classList.add('active')
+            _this.pen.classList.remove('active')
+        }
+        this.red.onclick = function() {
+            _this.red.classList.add('active')
+            _this.yellow.classList.remove('active')
+            _this.blue.classList.remove('active')
+            _this.context.strokeStyle = 'red'
+        }
+        this.yellow.onclick = function() {
+            _this.red.classList.remove('active')
+            _this.yellow.classList.add('active')
+            _this.blue.classList.remove('active')
+            _this.context.strokeStyle = 'yellow'
+        }
+        this.blue.onclick = function() {
+            _this.red.classList.remove('active')
+            _this.yellow.classList.remove('active')
+            _this.blue.classList.add('active')
+            _this.context.strokeStyle = 'blue'
         }
     },
+    // 次函数可以不用使用，只需要move触发时划线就可以了
     drawCircle: function(x, y, radius) {
         this.context.beginPath()
         this.context.arc(x, y, radius, 0, Math.PI * 2)

@@ -1,29 +1,79 @@
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+* {
+  /* 不加这个默认的body有个margin，获取到的clientX和clientY是相对于根元素的，把这个值用在相对于canvas上会有偏移 */
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    /* 不加这个默认的body有个margin，获取到的clientX和clientY是相对于根元素的，把这个值用在相对于canvas上会有偏移 */
-    margin: 0;
-    padding: 0;
+  /* 禁用滚动条，防止画的时候抖动 */
+  overflow: hidden;
 }
 
 #canvas {
-    background: pink;
-    display: block;
-    /*   不加会有缝隙 */
+  display: block;
+  /*   不加会有缝隙 */
 }
 
-#eraser {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    padding: 5px 10px;
-    border-radius: 5px;
-    background: #777;
-    cursor: pointer;
-    outline: none;
-    color: white;
-    border: none;
-    font-family: "方正舒体"
+.action {
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 20px;
 }
 
-#eraser:hover {
-    background: #444;
+.action svg {
+  width: 1.5em;
+  height: 1.5em;
+  transition: all 0.3s;
+  margin: 0 10px;
+}
+
+.action svg.active {
+  color: red;
+  transform: scale(1.2)
+}
+
+.colors {
+  position: fixed;
+  top: 60px;
+  left: 28px;
+}
+
+.colors ol li {
+  width: 20px;
+  height: 20px;
+  margin: 15px 0;
+  border-radius: 50%;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s;
+}
+
+.colors ol li#red {
+  background: red;
+}
+
+.colors ol li#yellow {
+  background: yellow;
+}
+
+.colors ol li#blue {
+  background: blue;
+}
+
+.colors ol li.active {
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.95);
+  transform: scale(1.2)
 }
