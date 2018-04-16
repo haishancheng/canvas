@@ -61,6 +61,10 @@ body {
   transition: all 0.3s;
 }
 
+.colors ol li#black {
+  background: black;
+}
+
 .colors ol li#red {
   background: red;
 }
@@ -76,4 +80,32 @@ body {
 .colors ol li.active {
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.95);
   transform: scale(1.2)
+}
+
+.thickness {
+  position: fixed;
+  top: 60px;
+  right: 10px;
+}
+
+.thickness ol li {
+  width: 30px;
+  margin: 20px 0;
+  border-radius: 2px;
+}
+
+.thickness ol li#thin {
+  border-top: 2px solid black;
+}
+
+.thickness ol li#thick {
+  border-top: 5px solid black;
+}
+
+.thickness ol li#thicker {
+  border-top: 10px solid black;
+}
+
+.thickness ol li.active {
+  border-color: red!important;
 }

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>我的画板</title>
   <link rel="stylesheet" href="./canvas.css">
-  <script type="text/javascript" src="//at.alicdn.com/t/font_630268_jlj5gmges2rcnmi.js"></script>
+  <script type="text/javascript" src="//at.alicdn.com/t/font_630268_0n91s1khm66zjjor.js"></script>
   <script type="text/javascript" src="./canvas.js" async="async"></script>
   <style type="text/css">
     .icon {
@@ -28,12 +28,26 @@
     <svg id="eraser" class="icon" aria-hidden="true">
       <use xlink:href="#icon-eraser"></use>
     </svg>
+    <svg id="clear" class="icon" aria-hidden="true">
+      <use xlink:href="#icon-clear"></use>
+    </svg>
+    <svg id="save" class="icon" aria-hidden="true">
+      <use xlink:href="#icon-save"></use>
+    </svg>
   </div>
   <div class="colors">
     <ol>
+      <li id="black" class="active"></li>
       <li id="red"></li>
       <li id="yellow"></li>
       <li id="blue"></li>
+    </ol>
+  </div>
+  <div class="thickness">
+    <ol>
+      <li id="thin" class="active"></li>
+      <li id="thick" class></li>
+      <li id="thicker" class></li>
     </ol>
   </div>
 </body>
