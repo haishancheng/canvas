@@ -30,7 +30,7 @@ var canvas = {
                 var x = e.touches[0].clientX //因为触屏支持多点触控，所以可能收集多个
                 var y = e.touches[0].clientY
                 if (_this.eraserEnable) {
-                    _this.context.clearRect(x - 5, y - 5, 10, 10)
+                    _this.context.clearRect(x - 10, y - 10, 20, 20)
                 } else {
                     _this.lastPoint = { x: x, y: y }
                     _this.drawCircle(x, y, _this.lineWidth / 2)
@@ -42,7 +42,7 @@ var canvas = {
                     var y = e.touches[0].clientY
                     var newPoint = { x: x, y: y }
                     if (_this.eraserEnable) {
-                        _this.context.clearRect(x - 5, y - 5, 10, 10)
+                        _this.context.clearRect(x - 10, y - 10, 20, 20)
                     } else {
                         _this.drawCircle(x, y, _this.lineWidth / 2)
                         _this.drawLine(_this.lastPoint.x, _this.lastPoint.y, newPoint.x, newPoint.y)
@@ -60,7 +60,7 @@ var canvas = {
                 var x = e.clientX
                 var y = e.clientY
                 if (_this.eraserEnable) {
-                    _this.context.clearRect(x - 5, y - 5, 10, 10)
+                    _this.context.clearRect(x - 10, y - 10, 20, 20)
                 } else {
                     _this.lastPoint = { x: x, y: y }
                     _this.drawCircle(x, y, _this.lineWidth / 2)
@@ -72,7 +72,7 @@ var canvas = {
                     var y = e.clientY
                     var newPoint = { x: x, y: y }
                     if (_this.eraserEnable) {
-                        _this.context.clearRect(x - 5, y - 5, 10, 10)
+                        _this.context.clearRect(x - 10, y - 10, 20, 20)
                     } else {
                         _this.drawCircle(x, y, _this.lineWidth / 2)
                         _this.drawLine(_this.lastPoint.x, _this.lastPoint.y, newPoint.x, newPoint.y)
